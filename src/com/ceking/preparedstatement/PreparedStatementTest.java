@@ -1,8 +1,6 @@
 package com.ceking.preparedstatement;
 
-import com.ceking.connection.ConnectionTest;
 import com.ceking.util.JDBCUtils;
-import org.hamcrest.Condition;
 import org.junit.Test;
 
 import java.io.IOException;

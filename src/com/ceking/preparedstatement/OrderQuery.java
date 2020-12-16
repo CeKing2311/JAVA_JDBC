@@ -2,7 +2,6 @@ package com.ceking.preparedstatement;
 
 import com.ceking.bean.Order;
 import com.ceking.util.JDBCUtils;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
