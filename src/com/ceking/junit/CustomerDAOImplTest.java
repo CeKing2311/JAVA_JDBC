@@ -1,7 +1,7 @@
 package com.ceking.junit;
 
 import com.ceking.bean.Customers;
-import com.ceking.dao2.CustomersDAOImpl;
+import com.ceking.dao3.CustomersDAOImpl;
 import com.ceking.util.JDBCUtils;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class CustomerDAOImplTest {
         Connection conn = null;
         try {
             conn = JDBCUtils.getConnection();
-            Customers cust =new Customers(1,"王重阳","wangchongyang@qq.com",new Date(32342453453L));
+            Customers cust =new Customers(1,"李斯","lisi@qq.com",new Date(32342521453L));
             dao.insert(conn,cust);
             System.out.println("添加成功!");
         } catch (Exception e) {
