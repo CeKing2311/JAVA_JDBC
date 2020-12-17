@@ -32,7 +32,7 @@ public class CustomersQuery {
         PreparedStatement ps = null;
         ResultSet res = null;
         try {
-            conn = JDBCUtils.getConnection();
+            conn = JDBCUtils.getDruidConnection();
             ps = conn.prepareStatement(sql);
             for (int i=0 ; i<args.length;i++){
                 ps.setObject(i+1, args[i]);

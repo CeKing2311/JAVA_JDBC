@@ -1,6 +1,8 @@
 package com.ceking.util;
 
-import java.io.IOException;
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
@@ -12,6 +14,17 @@ import java.util.Properties;
  */
 public class JDBCUtils {
 
+    private  static  DataSource dataSource;
+    static {
+        try {
+            Properties prop =new Properties();
+            InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("druid.properties");
+            prop.load(is);
+            dataSource = DruidDataSourceFactory.createDataSource(prop);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * 获取数据库连接
      * @return
@@ -31,6 +44,16 @@ public class JDBCUtils {
         //3.获取连接
         Connection connection = DriverManager.getConnection(url, user, password);
         return  connection;
+    }
+
+    /**
+     * 通过druid获取连接池
+     * @return
+     * @throws Exception
+     */
+    public  static Connection getDruidConnection() throws Exception {
+        Connection conn = dataSource.getConnection();
+        return  conn;
     }
 
     /**
@@ -84,4 +107,6 @@ public class JDBCUtils {
             }
         }
     }
+
+
 }

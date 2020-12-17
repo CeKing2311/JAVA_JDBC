@@ -32,7 +32,6 @@ public class ExerTest {
         int grade = scanner.nextInt();
 
         String sql = " insert into examstudent(Type,IDCard,ExamCard,StudentName,Location,Grade) values(?,?,?,?,?,?)";
-
         int count = update(sql, type, IDCard, examCard, name, location, grade);
 
         if (count>0){
